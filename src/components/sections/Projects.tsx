@@ -33,7 +33,6 @@ const projects: Project[] = [
     ],
     badge: "AI / LLM",
     badgeColor: "bg-violet-50 text-violet-700 border-violet-200",
-    liveUrl: "#",
     githubUrl: "https://github.com/manishyml/portfolio",
   },
   {
