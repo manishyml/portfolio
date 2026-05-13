@@ -33,6 +33,7 @@ const projects: Project[] = [
     ],
     badge: "AI / LLM",
     badgeColor: "bg-violet-50 text-violet-700 border-violet-200",
+    screenshot: "/projects/chatbot.png",
   },
   {
     title: "Shared Frontend Platform & Design System",
