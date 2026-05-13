@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, Download } from "lucide-react";
+import { ArrowUpRight, Mail, Download, Phone } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
@@ -118,6 +118,12 @@ export function Contact() {
             className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-zinc-100"
           >
             <Mail size={15} /> Email me
+          </a>
+          <a
+            href="tel:+919945029629"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-transparent px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/30 hover:text-white"
+          >
+            <Phone size={15} /> Call Now
           </a>
           <a
             href="/resume.pdf"
