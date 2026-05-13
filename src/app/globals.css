@@ -1,26 +1,216 @@
 @import "tailwindcss";
 
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  20%       { transform: rotate(18deg); }
+  40%       { transform: rotate(-10deg); }
+  60%       { transform: rotate(14deg); }
+  80%       { transform: rotate(-6deg); }
+}
+
+@theme {
+  --font-sans: var(--font-inter);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:           #ffffff;
+  --surface:      #ffffff;
+  --surface-muted: #f9fafb;
+  --border:       rgba(0, 0, 0, 0.07);
+  --border-strong: rgba(0, 0, 0, 0.12);
+  --text:         #18181b;
+  --muted:        #71717a;
+  --subtle:       #a1a1aa;
+  --accent:       #0ea5e9;
+  --shadow-xs:    0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm:    0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md:    0 8px 30px rgba(0, 0, 0, 0.06);
+  --shadow-lg:    0 24px 60px rgba(0, 0, 0, 0.08);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+* { box-sizing: border-box; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: #ffffff;
+  color: var(--text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+button, a { font: inherit; }
+
+/* ─── Section layout ─────────────────────────────────── */
+
+.section-header {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--subtle);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.section-label::before,
+.section-label::after {
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.section-title {
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0.875rem 0 0;
+  font-weight: 700;
+  color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .section-title { font-size: 2.625rem; }
+}
+
+@media (min-width: 1024px) {
+  .section-title { font-size: 3.125rem; }
+}
+
+.section-copy {
+  margin-top: 0.875rem;
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+/* ─── Cards ──────────────────────────────────────────── */
+
+.section-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.125rem;
+  box-shadow: var(--shadow-xs);
+}
+
+/* ─── Buttons ────────────────────────────────────────── */
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.8125rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 0.18s ease;
+  border: 1px solid transparent;
+  background: #18181b;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 6px 20px rgba(0,0,0,0.08);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-pill:hover {
+  background: #27272a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.10), 0 10px 28px rgba(0,0,0,0.10);
+}
+
+.btn-pill:active {
+  transform: translateY(0);
+}
+
+.btn-pill-soft {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-pill-soft:hover {
+  background: var(--surface-muted);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Display text ───────────────────────────────────── */
+
+.text-massive {
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+}
+
+/* ─── Timeline ───────────────────────────────────────── */
+
+.timeline-item {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  top: 0.5rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: #ffffff;
+  border: 2px solid var(--accent);
+  border-radius: 9999px;
+}
+
+/* ─── Tech chip ──────────────────────────────────────── */
+
+.tech-chip {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.tech-chip:hover { transform: translateY(-2px); }
+
+/* ─── Animations ─────────────────────────────────────── */
+
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes marquee {
+  to { transform: translateX(-100%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0);    }
+}
+
+@utility animate-marquee {
+  animation: marquee var(--marquee-speed, 40s) linear infinite;
+}
+
+@utility animate-marquee-reverse {
+  animation: marquee-reverse var(--marquee-speed, 40s) linear infinite;
 }

@@ -1,7 +1,29 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --yes)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npm install *)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => !k.startsWith\\('Lucide'\\) && !k.endsWith\\('Icon'\\)\\).slice\\(0, 20\\); console.log\\('Sample:', keys.join\\(', '\\)\\)\")",
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__0o.x~8u._.css\")",
+      "Bash(npm list *)",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); console.log\\(Object.keys\\(si\\).filter\\(k => ['siReact','siNextdotjs','siTypescript','siTailwindcss','siRedux','siReactquery','siStorybook','siPreact','siFramer','siJavascript','siHtml5','siNodedotjs','siGraphql','siExpress','siAzuredevops','siNx','siWebpack','siVite','siGit','siOpenai','siPlaywright','siJest'].includes\\(k\\)\\)\\)\")",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); console.log\\(Object.keys\\(si\\).filter\\(k => k.toLowerCase\\(\\).includes\\('azure'\\) || k.toLowerCase\\(\\).includes\\('openai'\\) || k.toLowerCase\\(\\).includes\\('playwright'\\) || k.toLowerCase\\(\\).includes\\('zustand'\\) || k.toLowerCase\\(\\).includes\\('framer'\\)\\)\\)\")",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); const keys = Object.keys\\(si\\).filter\\(k => k.toLowerCase\\(\\).includes\\('azure'\\) || k.toLowerCase\\(\\).includes\\('openai'\\) || k.toLowerCase\\(\\).includes\\('playwright'\\) || k.toLowerCase\\(\\).includes\\('microsoft'\\)\\); console.log\\(keys\\)\")",
+      "Bash(node -e 'const si = require\\('\\\\''simple-icons'\\\\''\\); const keys = Object.keys\\(si\\).filter\\(k => ['\\\\''siAzure'\\\\'','\\\\''siOpenai'\\\\'','\\\\''siPlaywright'\\\\'','\\\\''siMicrosoftazure'\\\\''].includes\\(k\\)\\); console.log\\(keys\\); // Also check titles *)",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); const entries = Object.entries\\(si\\).filter\\(\\([k,v]\\) => v && v.title && \\(v.title.toLowerCase\\(\\).includes\\('azure'\\) || v.title.toLowerCase\\(\\).includes\\('devops'\\)\\)\\); console.log\\(entries.map\\(\\([k,v]\\) => k + ': ' + v.title\\)\\)\")",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); const keys = Object.keys\\(si\\); console.log\\(keys.filter\\(k => k.startsWith\\('siA'\\)\\).slice\\(0,30\\)\\)\")",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); console.log\\(si.siReact.hex, si.siNextdotjs.hex, si.siGit.hex\\)\")",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); const keys = Object.keys\\(si\\); const matching = keys.filter\\(k => si[k] && si[k].title && si[k].title.toLowerCase\\(\\).match\\(/azure|microsoft/\\)\\); console.log\\(matching.map\\(k => k + ': ' + si[k].title\\)\\)\")",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); console.log\\(si.siMicrosoftazure ? 'found azure' : 'not found'\\); console.log\\(si.siAzuredevops ? 'found devops' : 'not found'\\); console.log\\(si.siDocker ? 'docker found: ' + si.siDocker.hex : 'no docker'\\)\")",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); const count = Object.keys\\(si\\).length; console.log\\('Total icons:', count\\); console.log\\('Version check...'\\); console.log\\(require\\('/Users/manishkumarsingh/Code/Portfolio/node_modules/simple-icons/package.json'\\).version\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const si = require\\('simple-icons'\\); console.log\\(si.siOpenapiinitiative?.hex\\); console.log\\(si.siPostman?.hex\\)\")",
+      "Bash(npm run *)",
+      "Bash(npx playwright *)",
+      "Bash(find /var/folders -name \"*.png\" -newer /tmp -maxdepth 6 2>/dev/null | head -20; find /tmp -name \"*.png\" 2>/dev/null | head -10)",
+      "Read(//private/var/folders/**)",
+      "Read(//private/tmp/**)",
+      "Bash(npx tsc *)"
     ]
   }
 }
